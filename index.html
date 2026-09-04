@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>3D Gem Collector</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <!-- Container Grafis 3D -->
+  <div id="canvas-container"></div>
+
+  <!-- UI Overlay -->
+  <div class="ui-layer">
+    <!-- Menu Awal -->
+    <div id="start-menu" class="overlay-card interactive">
+      <h1>GEM HUNTER 3D</h1>
+      <p>Kumpulkan kristal merah sebanyak mungkin sebelum waktu habis!</p>
+      <input type="text" id="username" placeholder="Nama Pemain" required>
+      <input type="tel" id="noHp" placeholder="Nomor WhatsApp/HP" required>
+      <button onclick="startGame()">Mulai Bermain</button>
+    </div>
+
+    <!-- HUD saat Bermain -->
+    <div id="hud">
+      <div>Skor: <span id="score-text">0</span></div>
+      <div>Waktu: <span id="timer-text">30</span>s</div>
+    </div>
+
+    <!-- Analog Touch Joystick -->
+    <div id="joystick-zone" class="interactive">
+      <div id="joystick-handle"></div>
+    </div>
+
+    <!-- Menu Game Over & Leaderboard -->
+    <div id="game-over-menu" class="overlay-card interactive" style="display: none;">
+      <h1>Game Selesai!</h1>
+      <p>Skor Akhir Anda: <span id="final-score" style="color:#38bdf8; font-weight:bold;">0</span></p>
+      <p id="status-upload" style="font-size: 0.85rem; color: #fbbf24; margin-bottom: 10px;"></p>
+      
+      <h3 style="margin-top: 10px; color: #fff;">Top 5 Leaderboard</h3>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Nama</th><th>Skor</th></tr>
+        </thead>
+        <tbody id="leaderboard-body">
+          <tr><td colspan="3">Memuat data...</td></tr>
+        </tbody>
+      </table>
+      <br>
+      <button onclick="restartGame()">Main Lagi</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
